@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faulty Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            margin: 10px;
+            padding: 5px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Faulty Calculator</h1>
+    <input type="text" id="expression" placeholder="Enter your expression (e.g., 5+3)">
+    <button onclick="calculate()">Calculate</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculate() {
+            const expression = document.getElementById("expression").value;
+            let result;
+
+            // Faulty conditions
+            if (expression === "5+3") {
+                result = 15; // Intentionally incorrect result
+            } else if (expression === "6*9") {
+                result = 42; // Another intentional fault (reference to a popular joke)
+            } else {
+                // Safe eval usage for correct calculations
+                try {
+                    result = eval(expression);
+                } catch (error) {
+                    result = "Error: Invalid Expression";
+                }
+            }
+
+            // Display the result
+            document.getElementById("result").innerText = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>
