@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to JavaScript</h1>
+    <p class="message" id="outputMessage">Click anywhere to start!</p>
+
+    <script>
+        // Function to handle the introduction
+        function startIntroduction() {
+            // Prompt the user for their name
+            let userName = prompt("Welcome to JavaScript! What is your name?", "Guest");
+
+            // Get the message element
+            const messageElement = document.getElementById("outputMessage");
+
+            // Check if the user entered a name
+            if (userName !== null && userName.trim() !== "") {
+                // Confirm if the user is ready to learn JavaScript
+                let isReady = confirm(`Hi ${userName}, are you ready to start learning JavaScript?`);
+
+                if (isReady) {
+                    messageElement.textContent = `Great! Let's begin, ${userName}!`;
+                    messageElement.style.color = "#4CAF50"; // Change text color to green
+                } else {
+                    messageElement.textContent = "No worries! Come back when you're ready.";
+                    messageElement.style.color = "#FF5722"; // Change text color to orange
+                }
+            } else {
+                messageElement.textContent = "No name entered. Refresh to try again!";
+                messageElement.style.color = "#F44336"; // Change text color to red
+            }
+        }
+
+        // Add an event listener to the body to start the introduction on click
+        document.body.addEventListener("click", startIntroduction);
+    </script>
+</body>
+</html>
