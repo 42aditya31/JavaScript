@@ -28,6 +28,7 @@ console.log("After modification:", fruits);
 let index = fruits.indexOf("Cherry");
 console.log("Index of Cherry:", index); 
 
+
 // 7. Remove or replace elements using splice
 fruits.splice(1, 1, "Blackberry"); 
 console.log("After splice:", fruits); 
