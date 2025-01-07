@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM Example</title>
+</head>
+<body>
+    <div id="parent">
+        <p id="child1">Child 1</p>
+        <p id="child2">Child 2</p>
+        <p id="child3">Child 3</p>
+    </div>
+    <script>
+        
+        const parent = document.getElementById('parent');
+        console.log('Parent:', parent);
+
+
+        const children = parent.children;
+        console.log('Children:', children);
+
+
+        const firstChild = parent.firstElementChild;
+        console.log('First Child:', firstChild);
+
+
+        const lastChild = parent.lastElementChild;
+        console.log('Last Child:', lastChild);
+
+
+        const secondChild = document.getElementById('child2');
+        console.log('Second Child:', secondChild);
+
+        const previousSibling = secondChild.previousElementSibling;
+        console.log('Previous Sibling of Child 2:', previousSibling);
+
+        const nextSibling = secondChild.nextElementSibling;
+        console.log('Next Sibling of Child 2:', nextSibling);
+    </script>
+</body>
+</html>
