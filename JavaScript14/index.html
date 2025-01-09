@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eveny Bubbling </title>
+    <style>
+        .container{
+            background-color: bisque;
+            margin: 14px;
+            padding: 14px;
+            text-align: center;
+            align-items: center;
+        }
+        .containerChild{
+            background-color: #000;
+            margin: 14px;
+            padding: 14px;
+            text-align: center;
+            align-items: center;
+        }
+        .child{
+            background-color: #ade5e5;
+            margin: 14px;
+            padding: 14px;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="containerChild">
+            <div class="child"> I am teh child </div>
+        </section>
+    </div>
+    <script>
+
+        // Now when you cliked on he button of child but its automatically clicked on their parent class with above code :
+        /*
+        document.querySelector(".container").addEventListener("click", () => {
+            alert(" You clicked the Container")
+        })
+
+        document.querySelector(".containerChild").addEventListener("click", () => {
+            alert(" You clicked the ContainerChild")
+        })
+
+        document.querySelector(".child").addEventListener("click", () => {
+            alert(" You clicked the child")
+        })
+            */
+
+            // to stop that bubbling effect We have to do this :
+            document.querySelector(".container").addEventListener("click", (e) => {
+                e.stopPropagation()
+            alert(" You clicked the Container")
+        })
+
+        document.querySelector(".containerChild").addEventListener("click", (e) => {
+            e.stopPropagation()
+            alert(" You clicked the ContainerChild")
+        })
+
+        document.querySelector(".child").addEventListener("click", (e) => {
+            e.stopPropagation()
+            alert(" You clicked the child")
+        })
+    </script>
+</body>
+</html>
