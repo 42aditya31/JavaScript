@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events Example</title>
+    <style>
+        /* Simple styling for visualization */
+        .outer {
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            margin: 20px;
+        }
+        .inner {
+            padding: 20px;
+            border: 2px solid #f44336;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer" id="outerDiv">
+        Outer Div
+        <div class="inner" id="innerDiv">
+            Inner Div
+        </div>
+    </div>
+
+    <button id="startInterval">Start Interval</button>
+    <button id="stopInterval">Stop Interval</button>
+    <button id="startTimeout">Start Timeout</button>
+    <button id="removeListeners">Remove Event Listeners</button>
+
+    <script>
+        // JavaScript Code
+
+        // Selecting elements
+        const outerDiv = document.getElementById('outerDiv');
+        const innerDiv = document.getElementById('innerDiv');
+        const startIntervalBtn = document.getElementById('startInterval');
+        const stopIntervalBtn = document.getElementById('stopInterval');
+        const startTimeoutBtn = document.getElementById('startTimeout');
+        const removeListenersBtn = document.getElementById('removeListeners');
+
+        // Event Handlers
+        function outerClickHandler(event) {
+            console.log('Outer Div Clicked');
+            console.log('Event Target:', event.target);
+            console.log('Event Current Target:', event.currentTarget);
+            console.dir(event);
+        }
+
+        function innerClickHandler(event) {
+            console.log('Inner Div Clicked');
+            console.dir(event);
+            // To stop the event from bubbling up to the outer div
+            // Uncomment the next line to see the effect
+            // event.stopPropagation();
+        }
+
+        function buttonClickHandler(event) {
+            console.log(`Button "${event.target.textContent}" clicked`);
+        }
+
+        // Adding Event Listeners
+        outerDiv.addEventListener('click', outerClickHandler);
+        innerDiv.addEventListener('click', innerClickHandler);
+        startIntervalBtn.addEventListener('click', startInterval);
+        stopIntervalBtn.addEventListener('click', stopInterval);
+        startTimeoutBtn.addEventListener('click', startTimeout);
+        removeListenersBtn.addEventListener('click', removeEventListeners);
+
+        // Handling setInterval and setTimeout
+        let intervalId;
+
+        function startInterval() {
+            if (!intervalId) {
+                intervalId = setInterval(() => {
+                    console.log('Interval running every 2 seconds');
+                }, 2000);
+                console.log('Interval started');
+            }
+        }
+
+        function stopInterval() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+                console.log('Interval stopped');
+            }
+        }
+
+        function startTimeout() {
+            console.log('Timeout started: Will alert after 3 seconds');
+            setTimeout(() => {
+                alert('Timeout Completed!');
+            }, 3000);
+        }
+
+        // Removing Event Listeners
+        function removeEventListeners() {
+            outerDiv.removeEventListener('click', outerClickHandler);
+            innerDiv.removeEventListener('click', innerClickHandler);
+            startIntervalBtn.removeEventListener('click', startInterval);
+            stopIntervalBtn.removeEventListener('click', stopInterval);
+            startTimeoutBtn.removeEventListener('click', startTimeout);
+            removeListenersBtn.removeEventListener('click', removeEventListeners);
+            console.log('All event listeners removed');
+        }
+
+        // Demonstrating Event Object
+        // When you click on the inner or outer div, details about the event are logged
+    </script>
+</body>
+</html>
