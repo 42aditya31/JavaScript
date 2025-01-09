@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eveny Bubbling</title>
+    <title>setInterval & setTimeOut</title>
     <style>
       .container {
         background-color: bisque;
@@ -64,7 +64,7 @@
         document.querySelector(".child").style.background = generateRandomColor()
       }, 1000);
 
-      setInterval(() => {
+      setTimeout(() => {
         document.querySelector(".container").style.background = generateRandomColor()
       }, 1000);
     </script>
