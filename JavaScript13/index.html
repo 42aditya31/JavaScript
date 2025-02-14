@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Insert & Remove</title>
+    <style>
+        .hidden { display: none; }
+        .highlight { color: red; }
+    </style>
+</head>
+<body>
+    <h1 id="main-heading">Main Heading</h1>
+    <p data-info="description">This is a paragraph with data attributes.</p>
+    <div id="container">
+        <p>Existing content in the container.</p>
+    </div>
+    <button id="insert-btn">Insert Element</button>
+    <button id="remove-btn">Remove Element</button>
+    <button id="toggle-btn">Toggle Visibility</button>
+    <script>
+        
+        const heading = document.getElementById("main-heading");
+        const container = document.getElementById("container");
+        const insertBtn = document.getElementById("insert-btn");
+        const removeBtn = document.getElementById("remove-btn");
+        const toggleBtn = document.getElementById("toggle-btn");
+
+        // Access tagName, nodeName, and textContent
+        console.dir(heading); // Shows all properties
+        console.log("Tag Name:", heading.tagName);
+        console.log("Node Name:", heading.nodeName);
+        console.log("Text Content:", heading.textContent);
+
+        // Access innerHTML and outerHTML
+        console.log("Inner HTML of container:", container.innerHTML);
+        console.log("Outer HTML of heading:", heading.outerHTML);
+
+        // Modify textContent
+        heading.textContent = "Updated Main Heading";
+
+        // Using attributes and data-* attributes
+        const para = document.querySelector("p[data-info]");
+        console.log("Data Attribute (data-info):", para.getAttribute("data-info"));
+        para.setAttribute("data-extra", "additional info");
+
+        // Insert new element using insertAdjacentHTML
+        insertBtn.addEventListener("click", () => {
+            container.insertAdjacentHTML("beforeend", "<p>Newly inserted paragraph.</p>");
+        });
+
+        // Insert using createElement and appendChild
+        insertBtn.addEventListener("click", () => {
+            const newDiv = document.createElement("div");
+            newDiv.textContent = "This is a new div element.";
+            container.appendChild(newDiv);
+        });
+
+        // Remove element
+        removeBtn.addEventListener("click", () => {
+            const lastChild = container.lastElementChild;
+            if (lastChild) {
+                lastChild.remove(); // Node removal
+            } else {
+                alert("No more elements to remove!");
+            }
+        });
+
+        // Toggle visibility using the hidden property
+        toggleBtn.addEventListener("click", () => {
+            container.hidden = !container.hidden;
+        });
+
+        // Using className and classList
+        heading.classList.add("highlight");
+        setTimeout(() => heading.classList.remove("highlight"), 3000); // Removes the highlight after 3 seconds
+    </script>
+</body>
+</html>

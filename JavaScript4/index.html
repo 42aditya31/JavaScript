@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Loops Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Loops</h1>
+    <div class="output" id="output">
+        Check the console and output area for results!
+    </div>
+
+    <script>
+        const outputElement = document.getElementById("output");
+        let htmlOutput = "<strong>Results:</strong><br><ul>";
+
+        // 1. For Loop: Print numbers 1 to 5
+        console.log("For Loop:");
+        for (let i = 1; i <= 5; i++) {
+            console.log(i);
+            htmlOutput += `<li>For Loop: ${i}</li>`;
+        }
+
+        // 2. For-In Loop: Iterate over properties of an object
+        const person = { name: "Aditya", age: 21, profession: "Developer" };
+        console.log("\nFor-In Loop:");
+        for (let key in person) {
+            console.log(`${key}: ${person[key]}`);
+            htmlOutput += `<li>For-In Loop: ${key} = ${person[key]}</li>`;
+        }
+
+        // 3. For-Of Loop: Iterate over values of an iterable
+        const hobbies = ["Coding", "Music", "Sports"];
+        console.log("\nFor-Of Loop:");
+        for (let hobby of hobbies) {
+            console.log(hobby);
+            htmlOutput += `<li>For-Of Loop: ${hobby}</li>`;
+        }
+
+        // 4. While Loop: Print numbers 1 to 3
+        let count = 1;
+        console.log("\nWhile Loop:");
+        while (count <= 3) {
+            console.log(count);
+            htmlOutput += `<li>While Loop: ${count}</li>`;
+            count++;
+        }
+
+        // 5. Do-While Loop: Print numbers 1 to 3
+        let num = 1;
+        console.log("\nDo-While Loop:");
+        do {
+            console.log(num);
+            htmlOutput += `<li>Do-While Loop: ${num}</li>`;
+            num++;
+        } while (num <= 3);
+
+   
+    </script>
+</body>
+</html>

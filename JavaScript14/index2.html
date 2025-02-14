@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setInterval & setTimeOut</title>
+    <style>
+      .container {
+        background-color: bisque;
+        margin: 14px;
+        padding: 14px;
+        text-align: center;
+        align-items: center;
+      }
+      .containerChild {
+        background-color: #000;
+        margin: 14px;
+        padding: 14px;
+        text-align: center;
+        align-items: center;
+      }
+      .child {
+        background-color: #ade5e5;
+        margin: 14px;
+        padding: 14px;
+        text-align: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="containerChild">
+        <div class="child">I am the child</div>
+      </section>
+    </div>
+    <script>
+      function generateRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+      document.querySelector(".container").addEventListener("click", (e) => {
+        e.stopPropagation();
+        alert(" You clicked the Container");
+      });
+
+      document
+        .querySelector(".containerChild")
+        .addEventListener("click", (e) => {
+          e.stopPropagation();
+          alert(" You clicked the ContainerChild");
+        });
+
+      document.querySelector(".child").addEventListener("click", (e) => {
+        e.stopPropagation();
+        alert(" You clicked the child");
+      });
+
+      setInterval(() => {
+        document.querySelector(".child").style.background = generateRandomColor()
+      }, 1000);
+
+      setTimeout(() => {
+        document.querySelector(".container").style.background = generateRandomColor()
+      }, 1000);
+    </script>
+  </body>
+</html>

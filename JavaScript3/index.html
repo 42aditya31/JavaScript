@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Conditions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Conditionals & Operators</h1>
+    <div class="output" id="output">
+        Check the console and output area for results!
+    </div>
+
+    <script>
+        // Variable Declaration
+        let age = 18; // User's age
+        let isStudent = true; // Boolean flag for student status
+        let outputMessage = "";
+
+        // 1. If, Else If, Else Ladder
+        if (age < 13) {
+            outputMessage = "You are a child.";
+        } else if (age >= 13 && age < 18) {
+            outputMessage = "You are a teenager.";
+        } else if (age >= 18 && age < 60) {
+            outputMessage = "You are an adult.";
+        } else {
+            outputMessage = "You are a senior citizen.";
+        }
+
+        // 2. Using Logical and Comparison Operators
+        if (age >= 18 && isStudent) {
+            console.log("You are an adult student.");
+        } else if (age >= 18 || isStudent) {
+            console.log("You are either an adult or a student.");
+        } else {
+            console.log("You are neither an adult nor a student.");
+        }
+
+        // 3. Switch Case Example
+        let grade = "A";
+        switch (grade) {
+            case "A":
+                console.log("Excellent!");
+                break;
+            case "B":
+                console.log("Good Job!");
+                break;
+            case "C":
+                console.log("You passed.");
+                break;
+            default:
+                console.log("Invalid grade.");
+        }
+
+        // 4. Ternary Operator Example
+        let drivingEligibility = age >= 18 ? "Eligible to drive." : "Not eligible to drive.";
+
+        // 5. Comments
+        // This is a single-line comment
+        /* 
+        This is a 
+        multi-line comment
+        */
+
+        // Display results on the page
+        const outputElement = document.getElementById("output");
+        outputElement.innerHTML = `
+            <strong>Results:</strong><br>
+            ${outputMessage}<br>
+            ${drivingEligibility}<br>
+        `;
+
+        // Log outputs to the console
+        console.log("Age Condition: ", outputMessage);
+        console.log("Driving Eligibility: ", drivingEligibility);
+    </script>
+</body>
+</html>

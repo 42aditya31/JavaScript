@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables, Data Types & Objects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Variables, Data Types & Objects</h1>
+    <div class="output" id="output">
+        Check the console for detailed outputs!
+    </div>
+
+    <script>
+        // JavaScript Variables
+        let name = "Aditya"; // String
+        const age = 21; // Number
+        let isStudent = true; // Boolean
+        let hobbies = ["coding", "music", "sports"]; // Array
+        let address = null; // Null
+        let undefinedVariable; // Undefined
+
+        // Object Example
+        let person = {
+            firstName: "Aditya",
+            lastName: "Sharma",
+            age: 21,
+            isStudent: true,
+            hobbies: ["coding", "music", "sports"],
+            greet: function() {
+                return `Hello, my name is ${this.firstName} ${this.lastName}.`;
+            }
+        };
+
+        // Output in console
+        console.log("Variables and Data Types Example:");
+        console.log("Name (String):", name);
+        console.log("Age (Number):", age);
+        console.log("Is Student (Boolean):", isStudent);
+        console.log("Hobbies (Array):", hobbies);
+        console.log("Address (Null):", address);
+        console.log("Undefined Variable:", undefinedVariable);
+
+        console.log("\nObject Example:");
+        console.log("Person Object:", person);
+        console.log("Greeting:", person.greet());
+
+        // Display output on the page
+        const outputElement = document.getElementById("output");
+        outputElement.innerHTML = `
+            <strong>Variable Outputs:</strong><br>
+            Name: ${name} <br>
+            Age: ${age} <br>
+            Is Student: ${isStudent} <br>
+            Hobbies: ${hobbies.join(", ")} <br>
+            Address: ${address} <br>
+            Undefined Variable: ${undefinedVariable} <br><br>
+            <strong>Object Greeting:</strong> ${person.greet()}
+        `;
+    </script>
+</body>
+</html>

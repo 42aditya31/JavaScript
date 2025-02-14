@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Selectors Example</title>
+</head>
+<body>
+    <h1 id="title">JavaScript DOM Selectors</h1>
+    <p class="description">This is the first paragraph.</p>
+    <p class="description">This is the second paragraph.</p>
+    <ul>
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li class="item">Item 3</li>
+    </ul>
+
+    <button id="changeButton">Change Content</button>
+
+    <script>
+        
+        const title = document.getElementById('title');
+        console.log('By ID:', title);
+
+        
+        const descriptions = document.getElementsByClassName('description');
+        console.log('By Class (HTMLCollection):', descriptions);
+
+        
+        const listItems = document.getElementsByTagName('li');
+        console.log('By Tag Name (HTMLCollection):', listItems);
+
+        
+        const firstParagraph = document.querySelector('.description');
+        console.log('By querySelector (first match):', firstParagraph);
+
+        
+        const allItems = document.querySelectorAll('.item');
+        console.log('By querySelectorAll (NodeList):', allItems);
+
+        
+        const button = document.getElementById('changeButton');
+        button.addEventListener('click', () => {
+            
+            title.textContent = 'Content Changed!';
+             
+            descriptions[1].textContent = 'This is the updated second paragraph.';
+             
+            allItems.forEach(item => {
+                item.style.backgroundColor = 'lightblue';
+            });
+        });
+    </script>
+</body>
+</html>
